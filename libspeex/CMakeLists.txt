@@ -40,8 +40,6 @@ if(ENABLE_SPEEX_CODEC)
 		hexc_10_32_table.c
 		hexc_table.c
 		high_lsp_tables.c
-		kiss_fft.c
-		kiss_fftr.c
 		lpc.c
 		lsp.c
 		lsp_tables_nb.c
@@ -51,7 +49,6 @@ if(ENABLE_SPEEX_CODEC)
 		nb_celp.c
 		quant_lsp.c
 		sb_celp.c
-		smallft.c
 		speex.c
 		speex_callbacks.c
 		speex_header.c
@@ -59,9 +56,6 @@ if(ENABLE_SPEEX_CODEC)
 		vbr.c
 		vq.c
 		window.c
-		_kiss_fft_guts.h
-		kiss_fft.h
-		kiss_fftr.h
 	)
 
 	if(MSVC)
