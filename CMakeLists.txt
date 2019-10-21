@@ -50,6 +50,7 @@ set(WITH_FFT "" CACHE STRING "Use an alternate FFT implementation. The available
 option(ENABLE_STATIC "Build static library (default is shared library)." OFF)
 
 
+include(GNUInstallDirs)
 include(CheckIncludeFile)
 include(CheckFunctionExists)
 include(CheckCSourceCompiles)
@@ -221,15 +222,15 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/speex/speex_config_types.h
 
 set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix ${prefix}/bin)
-set(libdir ${prefix}/lib)
+set(libdir ${prefix}/${CMAKE_INSTALL_LIBDIR})
 set(includedir ${prefix}/include)
 if(ENABLE_SPEEX_CODEC)
 	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/speex.pc.in ${CMAKE_CURRENT_BINARY_DIR}/speex.pc)
-	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/speex.pc DESTINATION lib/pkgconfig)
+	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/speex.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 endif()
 if(ENABLE_SPEEX_DSP)
 	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/speexdsp.pc.in ${CMAKE_CURRENT_BINARY_DIR}/speexdsp.pc)
-	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/speexdsp.pc DESTINATION lib/pkgconfig)
+	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/speexdsp.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 endif()
 
 
